@@ -1,7 +1,8 @@
-// class TravelerRepo {
-//   constructor() {
+class TravelerRepo {
+  constructor(allTravelers) {
+    this.travelers = null;
+    this.currentTraveler = null;
+  }
+}
 
-//   }
-// }
-
-// export default TravelerRepo
+export default TravelerRepo

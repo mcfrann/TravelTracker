@@ -54,8 +54,16 @@ header {
 }
 
 .right-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 50%;
   height: 100%;
+}
+
+.travel-banner {
+  /* height: 90%; */
+  width: 90%;
 }
 
 .trips-container {
