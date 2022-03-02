@@ -36,7 +36,7 @@ header {
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  width: 60%;
+  width: 50%;
 }
 
 .welcome-message {
@@ -51,6 +51,11 @@ header {
   width: 100%;
   margin: 1%;
   margin-left: 5%;
+}
+
+.right-side {
+  width: 50%;
+  height: 100%;
 }
 
 .trips-container {
