@@ -1,14 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
+  <title>Your Travel Tracker!</title>
+  <link rel="stylesheet" href="../src/css/styles.css">
+  <!--font link-->
 </head>
 <body>
-  <img src="./images/turing-logo.png" alt="turing logo">
-  <p> Hellooooooo! </p>
+  <header>
+    <section class="welcome-container">
+      <h1 class="welcome-message"><!--innerHTML for greeting--></h1>
+      <!--Image collage-->
+    </section>
+  </header>
+  <section class="trips-container">
+    <section class="display-current-trip"></section>
+    <section class="display-upcoming-trips">
+      <!--carousel-->
+    </section>
+    <section class="display-past-trips">
+      <!--carousel-->
+    </section>
+    <section class="display-pending-trips">
+      <!--carousel-->
+    </section>
+  </section>
+  <section class="total-spent-banner">
+    <!--innerHTML for total spent-->
+  </section>
+  <section class="plan-travel-container">
+    <!--input fields for date, duration, # travelers, drop down of places
+    show estimated cost-->
+  </section>
+
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
 
