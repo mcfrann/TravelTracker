@@ -8,20 +8,49 @@ body {
   align-items: center;
   min-height: 100vh;
   background: linear-gradient(45deg, #edafb8, #fae1dd);
+  color: #4a5759;
+  font-family: 'Bebas Neue', cursive;
+  font-family: 'Gideon Roman', cursive;
+  font-family: 'Neonderthaw', cursive;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Oswald', sans-serif;
 }
 
-* {
+/* * {
   border: 2px solid red;
-}
+} */
 
 header {
   display: flex;
   flex-direction: row;
+  align-items: center;
   background-color: #f8edeb;
-  margin-top: 2%;
+  margin-top: 3%;
   height: 40vh;
   width: 80%;
   border-radius: 35px;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 60%;
+}
+
+.welcome-message {
+  width: 100%;
+  margin: 0%;
+  margin-left: 5%;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 400%;
+}
+
+.travel-quote {
+  width: 100%;
+  margin: 1%;
+  margin-left: 5%;
 }
 
 .trips-container {
@@ -59,6 +88,21 @@ div {
 }
 
 .display-upcoming-trips, .display-past-trips, .display-pending-trips {
-  height: 30%;
+  height: 29.5%;
   width: 95%;
+}
+
+.total-spent-banner {
+  width: 80%;
+  height: 30vh;
+  border-radius: 35px;
+  background-color: #ffe5d9;
+}
+
+.plan-travel-container {
+  width: 80%;
+  height: 40vh;
+  margin-top: 1.5%;
+  border-radius: 35px;
+  background-color: #f8edeb;
 }
