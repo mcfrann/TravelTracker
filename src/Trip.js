@@ -1,5 +1,5 @@
 class Trip {
-  constructor() {
+  constructor(allTrips) {
     this.id = null;
     this.userID = null;
     this.destinationID = null;
@@ -7,7 +7,8 @@ class Trip {
     this.date = null;
     this.duration = null;
     this.status = null;
-    this.suggestedActivities = []
+    this.suggestedActivities = [];
+    this.allTrips = allTrips;
   }
 }
 
