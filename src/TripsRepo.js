@@ -1,6 +1,7 @@
 // class Trips {
-//   constructor() {
-    
+//   constructor(allTrips) {
+//     this.allTrips = allTrips;
+
 //   }
 // }
 
