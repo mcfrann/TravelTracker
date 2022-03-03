@@ -15,4 +15,4 @@ export default Traveler
 //plug number into class instantiations 
 //
 //will instantiate traveler in scripts, pass in that object
-//
+// may have to include arrays of trips in travler class (this.pastTrips etc)
