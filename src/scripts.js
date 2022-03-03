@@ -1,10 +1,35 @@
-import './css/styles.css';
+//------------ IMPORTS ---------------------
 
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
+import './css/styles.css';
 import './images/travel-banner.jpg'
 
+//-------------- QUERY SELECTORS ---------------
 
-console.log('This is the JavaScript entry file - your code begins here.');
 
 
-console.log('This is a new test')
+//--------------- GLOBAL VARIABLES ---------------
+
+const currentTraveler = null;
+const fetchTravelers = fetchAPI.getAllTravelers();
+const fetchTrips = fetchAPI.getAllTrips();
+const fetchDestinations = fetch.getAllDestinations();
+
+//---------------- FUNCTIONS -----------------------
+
+const renderPage = () => {
+  Promise.all(fetchTravelers, fetchTrips, fetchDestinations)
+    .then(item => {
+      const allTravelers = item[0].travelers.map(traveler => new Traveler(currentTraveler))
+    })
+}
+
+const getRandomID = array => {
+
+}
+
+
+//----------------- SCRIPTS ----------------------
+
+
+
+//------------------ POST ------------------------
