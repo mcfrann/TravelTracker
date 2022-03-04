@@ -1,7 +1,7 @@
 class Trip {
-  constructor(trip) {
+  constructor(trip, travelerID) {
     this.id = trip.id;
-    this.userID = trip.userID;
+    this.userID = travelerID;
     this.destinationID = trip.destinationID;
     this.travelers = trip.travelers;
     this.date = trip.date;
