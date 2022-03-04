@@ -17,6 +17,7 @@ import fetchAPI from '../src/API-calls.js'
 const fetchTravelers = fetchAPI.getAllTravelers();
 const fetchTrips = fetchAPI.getAllTrips();
 const fetchDestinations = fetchAPI.getAllDestinations();
+// const allTrips = null;
 
 //---------------- FUNCTIONS -----------------------
 
@@ -26,11 +27,29 @@ const renderPage = () => {
       const allTravelers = item[0].travelers
       const generatedTraveler = getRandomID(allTravelers);
       const currentTraveler = new Traveler(generatedTraveler)
-      const allTrips = item[1].trips
+      const allTrips = item[1].trips.filter(trip => {
+        if (trip.userID === currentTraveler.id) {
+          return new Trip(trip)
+        }
+      })
+      const allDestinations = item[2].destinations.filter(destination => {
+        const iterateTrips = allTrips.map(trip => {
+          if (destination.id === trip.destinationID) {
+            return new Destination(destination)
+          }
+        })
+        return iterateTrips
+      })
+
+      console.log(allDestinations)
+      console.log(allTrips)
+      console.log(currentTraveler)
       
-      const allDestinations = item[2].destinations.map(destination => new Destination(destination))
     })
+
+    // setTimeout(() => {console.log(allTrips)}, 1000);
 }
+
 
 const getRandomID = array => {
   const randomID = array[Math.floor(Math.random() * array.length)]
