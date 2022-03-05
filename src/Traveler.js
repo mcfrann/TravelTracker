@@ -1,18 +1,23 @@
+import moment from 'moment';
+
 class Traveler {
-  constructor(traveler) {
+  constructor(traveler, today) {
     this.id = traveler.id;
     this.name = traveler.name;
     this.travelerType = traveler.travelerType;
+    this.trips = null;
+    this.currentTrip = null;
+    this.today = today;
+  }
+
+  returnFirstName() {
+    return this.name.split(' ')[0]
   }
 
 
 }
 
+
+
 export default Traveler
 
-//
-//generate random number for id, that returns object with that id
-//plug number into class instantiations 
-//
-//will instantiate traveler in scripts, pass in that object
-// may have to include arrays of trips in travler class (this.pastTrips etc)
