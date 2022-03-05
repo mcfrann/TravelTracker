@@ -1,7 +1,8 @@
 //------------ IMPORTS ---------------------
 
 import './css/styles.css';
-import './images/travel-banner.jpg';
+import './images/Untitled design (4).png';
+import domUpdates from './DOM-updates';
 import Traveler from '../src/Traveler';
 import Trip from '../src/Trip';
 import Destination from '../src/Destination';
@@ -17,6 +18,7 @@ import fetchAPI from '../src/API-calls.js'
 const fetchTravelers = fetchAPI.getAllTravelers();
 const fetchTrips = fetchAPI.getAllTrips();
 const fetchDestinations = fetchAPI.getAllDestinations();
+const today = null;
 // const allTrips = null;
 
 //---------------- FUNCTIONS -----------------------
@@ -32,28 +34,38 @@ const renderPage = () => {
           return new Trip(trip)
         }
       })
-      const allDestinations = item[2].destinations.filter(destination => {
-        const iterateTrips = allTrips.map(trip => {
+      currentTraveler.trips = allTrips
+      const tripDestinations = allTrips.forEach(trip => {
+        const places = item[2].destinations.forEach(destination => {
           if (destination.id === trip.destinationID) {
-            return new Destination(destination)
+            trip.destination = new Destination(destination)
           }
         })
-        return iterateTrips
+        return places
       })
-
-      console.log(allDestinations)
-      console.log(allTrips)
-      console.log(currentTraveler)
-      
+      displayWelcome(currentTraveler);
+      today = returnCurrentDate();
     })
-
-    // setTimeout(() => {console.log(allTrips)}, 1000);
 }
-
 
 const getRandomID = array => {
   const randomID = array[Math.floor(Math.random() * array.length)]
   return randomID
+}
+
+const returnCurrentDate = () => {
+  let today = new Date();
+  let dd = String(today.getDate()).padStart(2, '0');
+  let mm = String(today.getMonth() + 1).padStart(2, '0');
+  let yyyy = today.getFullYear();
+
+  today = yyyy + '/' + mm + '/' + dd;
+  console.log(today)
+  return today
+}
+
+const displayWelcome = (currentTraveler) => {
+  domUpdates.welcomeTraveler(currentTraveler);
 }
 
 
