@@ -39,12 +39,13 @@ const renderPage = () => {
         const places = item[2].destinations.forEach(destination => {
           if (destination.id === trip.destinationID) {
             trip.destination = new Destination(destination)
+            console.log(trip.destination)
           }
         })
         return places
       })
       displayWelcome(currentTraveler);
-      console.log(currentTraveler.returnCurrentTrip())
+      displayAllTrips(allTrips);
     })
 }
 
@@ -55,6 +56,10 @@ const getRandomID = array => {
 
 const displayWelcome = (currentTraveler) => {
   domUpdates.welcomeTraveler(currentTraveler);
+}
+
+const displayAllTrips = (tripDestinations) => {
+  domUpdates.displayTrips(tripDestinations);
 }
 
 //----------------- SCRIPTS ----------------------
