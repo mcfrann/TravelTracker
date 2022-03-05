@@ -39,7 +39,6 @@ const renderPage = () => {
         const places = item[2].destinations.forEach(destination => {
           if (destination.id === trip.destinationID) {
             trip.destination = new Destination(destination)
-            console.log(trip.destination)
           }
         })
         return places
@@ -67,3 +66,7 @@ const displayAllTrips = (tripDestinations) => {
 window.onload = (event) => (event, renderPage());
 
 //------------------ POST ------------------------
+
+
+
+export default today

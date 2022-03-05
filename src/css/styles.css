@@ -133,3 +133,7 @@ div {
   border-radius: 35px;
   background-color: #f8edeb;
 }
+
+p {
+  text-align: center;
+}
