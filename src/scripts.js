@@ -8,6 +8,7 @@ import Traveler from '../src/Traveler';
 import Trip from '../src/Trip';
 import Destination from '../src/Destination';
 import fetchAPI from '../src/API-calls.js';
+import Glide from '@glidejs/glide';
 
 
 //-------------- QUERY SELECTORS ---------------
@@ -20,6 +21,7 @@ const fetchTravelers = fetchAPI.getAllTravelers();
 const fetchTrips = fetchAPI.getAllTrips();
 const fetchDestinations = fetchAPI.getAllDestinations();
 const today = moment().format('YYYY/MM/DD');
+const glide = new Glide('.glide').mount();
 
 //---------------- FUNCTIONS -----------------------
 

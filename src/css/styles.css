@@ -47,6 +47,13 @@ h1 {
   font-size: 400%;
 }
 
+
+h2 {
+  /* font-family: 'Bebas Neue', cursive; */
+  font-size: 200%;
+  font-weight: bold;
+}
+
 .travel-quote {
   width: 100%;
   margin: 1%;
@@ -94,6 +101,7 @@ div {
 .your-travels {
   margin-left: 5%;
   width: 100%;
+  text-align: center;
 }
 
 .right-panel {
@@ -136,4 +144,9 @@ div {
 
 p {
   text-align: center;
+  font-size: 120%;
+}
+
+.glide__slide {
+  width: 100%;
 }
