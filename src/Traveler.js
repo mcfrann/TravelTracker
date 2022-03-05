@@ -1,24 +1,23 @@
+import moment from 'moment';
+
 class Traveler {
-  constructor(traveler) {
+  constructor(traveler, today) {
     this.id = traveler.id;
     this.name = traveler.name;
     this.travelerType = traveler.travelerType;
     this.trips = null;
     this.currentTrip = null;
+    this.today = today;
   }
 
   returnFirstName() {
     return this.name.split(' ')[0]
   }
 
-  // returnCurrentTrip() {
-  //   this.trips.filter(trip => {
-  //     let durationDates = trip.date
-  //     if (trip.date === 
-  //   })
-  // }
 
 }
+
+
 
 export default Traveler
 

@@ -1,12 +1,14 @@
 //------------ IMPORTS ---------------------
 
 import './css/styles.css';
+import moment from 'moment';
 import './images/Untitled design (4).png';
 import domUpdates from './DOM-updates';
 import Traveler from '../src/Traveler';
 import Trip from '../src/Trip';
 import Destination from '../src/Destination';
-import fetchAPI from '../src/API-calls.js'
+import fetchAPI from '../src/API-calls.js';
+
 
 //-------------- QUERY SELECTORS ---------------
 
@@ -14,12 +16,10 @@ import fetchAPI from '../src/API-calls.js'
 
 //--------------- GLOBAL VARIABLES ---------------
 
-// const currentTraveler = null;
 const fetchTravelers = fetchAPI.getAllTravelers();
 const fetchTrips = fetchAPI.getAllTrips();
 const fetchDestinations = fetchAPI.getAllDestinations();
-const today = null;
-// const allTrips = null;
+const today = moment().format('YYYY/MM/DD');
 
 //---------------- FUNCTIONS -----------------------
 
@@ -28,7 +28,7 @@ const renderPage = () => {
     .then(item => {
       const allTravelers = item[0].travelers
       const generatedTraveler = getRandomID(allTravelers);
-      const currentTraveler = new Traveler(generatedTraveler)
+      const currentTraveler = new Traveler(generatedTraveler, today)
       const allTrips = item[1].trips.filter(trip => {
         if (trip.userID === currentTraveler.id) {
           return new Trip(trip)
@@ -44,7 +44,7 @@ const renderPage = () => {
         return places
       })
       displayWelcome(currentTraveler);
-      today = returnCurrentDate();
+      console.log(currentTraveler.returnCurrentTrip())
     })
 }
 
@@ -53,21 +53,9 @@ const getRandomID = array => {
   return randomID
 }
 
-const returnCurrentDate = () => {
-  let today = new Date();
-  let dd = String(today.getDate()).padStart(2, '0');
-  let mm = String(today.getMonth() + 1).padStart(2, '0');
-  let yyyy = today.getFullYear();
-
-  today = yyyy + '/' + mm + '/' + dd;
-  console.log(today)
-  return today
-}
-
 const displayWelcome = (currentTraveler) => {
   domUpdates.welcomeTraveler(currentTraveler);
 }
-
 
 //----------------- SCRIPTS ----------------------
 
