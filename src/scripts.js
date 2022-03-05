@@ -47,6 +47,7 @@ const renderPage = () => {
       })
       displayWelcome(currentTraveler);
       displayAllTrips(allTrips);
+      domUpdates.displayTotalSpent(currentTraveler);
     })
 }
 

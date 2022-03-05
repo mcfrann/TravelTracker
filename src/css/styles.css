@@ -42,7 +42,7 @@ header {
 h1 {
   width: 100%;
   margin: 0%;
-  margin-left: 5%;
+  /* margin-left: 5%; */
   font-family: 'Bebas Neue', cursive;
   font-size: 400%;
 }
@@ -52,6 +52,10 @@ h2 {
   /* font-family: 'Bebas Neue', cursive; */
   font-size: 200%;
   font-weight: bold;
+}
+
+.welcome-message {
+  margin-left: 5%;
 }
 
 .travel-quote {
@@ -127,6 +131,10 @@ div {
 }
 
 .total-spent-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   width: 80%;
   height: 30vh;
   margin-top: 1.5%;
@@ -149,4 +157,12 @@ p {
 
 .glide__slide {
   width: 100%;
+}
+
+.total-message {
+  width: 100%;
+}
+
+i {
+  font-size: 100%;
 }

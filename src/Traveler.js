@@ -14,7 +14,15 @@ class Traveler {
     return this.name.split(' ')[0]
   }
 
-
+  returnTotalSpent() {
+    const tripLodging = this.trips.reduce((acc, trip) => {
+      const totalWithoutPercent = (acc + trip.estimatedLodgingCostPerDay) * trip.destination.estimatedLodgingCostPerDay
+      const tenPercent = totalWithoutPercent * .1
+      return totalWithoutPercent + tenPercent
+    }, 0)
+    return tripLodging
+    // const tripCostPerPerson = this.trips.reduce
+  }
 }
 
 

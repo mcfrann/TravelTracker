@@ -8,6 +8,7 @@ import moment from "moment";
 const welcomeMessage = document.querySelector('.welcome-message');
 const displayTrips = document.querySelector('.right-panel')
 const displayInGlide = document.querySelector('.glide__slides');
+const totalBanner = document.querySelector('.total-spent-banner');
 
 //---------------UPDATES---------------------
 
@@ -37,6 +38,12 @@ const domUpdates = {
       }
     })
     return iteratedTrips
+  },
+
+  displayTotalSpent(currentTraveler) {
+    totalBanner.innerHTML = `
+    <h1 class="total-message"><i>You've spent a total of $${currentTraveler.returnTotalSpent()} on adventures this year!</i></h1>
+    `
   }
 }
 
