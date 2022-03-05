@@ -88,16 +88,34 @@ div {
   align-items: center;
   justify-content: center;
   height: 100%;
-  width: 30%;
+  width: 35%;
+}
+
+.your-travels {
+  margin-left: 5%;
+  width: 100%;
 }
 
 .right-panel {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
-  width: 70%;
+  width: 65%;
+}
+
+.trip {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.tile-image {
+  width: 80%;
+  border-radius: 35px;
 }
 
 .total-spent-banner {
