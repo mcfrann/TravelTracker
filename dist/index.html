@@ -19,7 +19,7 @@
       <h2 class="travel-quote">Work, Travel, Save, Repeat.</h2>
     </section>
     <section class="right-side">
-      <img class="travel-banner" src="./images/Untitled design (4).png" />
+      <img class="travel-banner" src="./images/Untitled design (4).png" alt="travel photo collage"/>
     </section>
   </header>
   <div class="trips-container">
@@ -47,8 +47,18 @@
     <!--innerHTML for total spent-->
   </section>
   <section class="plan-travel-container">
+    <h1 class="book-trip-message">Ready for a trip?</h1>
+    <form class="book-travel-form">
+      <label for="trip-date">Date:</label>
+      <input class="trip-date-input" id="trip-date" type="date" required/>
+      <label for="trip-duration">Duration:</label>
+      <input class="trip-duration-input" id="trip-duration" type="text" placeholder=" 9"required/>
+      <label for="trip-travelers">Number of Travelers:</label>
+      <input class="trip-travelers-input" id="trip-travelers" type="text" placeholder=" 6" required/>
+    </form>
     <!--input fields for date, duration, # travelers, drop down of places
     show estimated cost-->
+
   </section>
 
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
