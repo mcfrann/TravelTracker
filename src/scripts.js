@@ -10,11 +10,6 @@ import Destination from '../src/Destination';
 import fetchAPI from '../src/API-calls.js';
 import Glide from '@glidejs/glide';
 
-
-//-------------- QUERY SELECTORS ---------------
-
-
-
 //--------------- GLOBAL VARIABLES ---------------
 
 const fetchTravelers = fetchAPI.getAllTravelers();
@@ -47,7 +42,7 @@ const renderPage = () => {
       })
       displayWelcome(currentTraveler);
       displayAllTrips(allTrips);
-      domUpdates.displayTotalSpent(currentTraveler);
+      setTimeout(() => domUpdates.displayTotalSpent(currentTraveler), 400)
     })
 }
 
@@ -69,7 +64,3 @@ const displayAllTrips = (tripDestinations) => {
 window.onload = (event) => (event, renderPage());
 
 //------------------ POST ------------------------
-
-
-
-export default today
