@@ -32,7 +32,7 @@ const fetchAPI = {
         return response.json()
       }
     })
-  }
+  },
 }
 
 export default fetchAPI;

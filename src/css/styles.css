@@ -136,23 +136,47 @@ div {
   align-items: center;
   text-align: center;
   width: 80%;
-  height: 30vh;
+  height: 15vh;
   margin-top: 1.5%;
   border-radius: 35px;
   background-color: #ffe5d9;
 }
 
+.total-message {
+  width: 100%;
+  font-size: 200%;
+}
+
 .plan-travel-container {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: center;
+  flex-direction: row;
+  /* justify-content: center; */
+  /* align-items: flex-end; */
+  /* text-align: right; */
+  margin-bottom: 3%;
   width: 80%;
-  height: 40vh;
+  height: 50vh;
   margin-top: 1.5%;
   border-radius: 35px;
   background-color: #f8edeb;
+}
+
+.right-side-booking {
+  display: flex;
+  width: 40%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.left-side-booking {
+  width: 60%;
+}
+
+.booking-banner {
+  border-radius: 35px;
+  height: 100%;
 }
 
 p {
@@ -164,16 +188,21 @@ p {
   width: 100%;
 }
 
-.total-message {
-  width: 100%;
-  font-size: 200%;
-}
-
 .book-trip-message {
-  margin-top: 5%;
-  margin-bottom: 5%;
+  margin-top: 2%;
+  margin-right: 10%;
+  margin-bottom: 2%;
   font-size: 300%;
   width: 100%;
+}
+
+form {
+  margin-right: 10%;
+  font-size: 18px;
+}
+
+.submit-button {
+  text-align: right;
 }
 
 /* i {

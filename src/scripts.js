@@ -3,6 +3,7 @@
 import './css/styles.css';
 import moment from 'moment';
 import './images/Untitled design (4).png';
+import './images/Untitled design (5).png';
 import domUpdates from './DOM-updates';
 import Traveler from '../src/Traveler';
 import Trip from '../src/Trip';
@@ -87,14 +88,18 @@ placesList.onchange = changeDestinationInput;
 // bookTripForm.addEventListener('submit', (e) => {
 //   e.preventDefault();
 //   const newTrip = {
-//     "id": allTripObjs.length + 1,
+//     "id": 43453,
 //     "userID": currentTraveler.id,
-//     "destinationID": null;
+//     "destinationID": 23;
 //     "travelers": travelersInput.value;
 //     "date": dateInput.value.replaceAll('-', '/'),
 //     "status": 'pending',
 //     "suggestedActivities": []
 //   };
 //   fetchAPI.postNewTrip(newTrip);
+//   console.log(newTrip)
 //   e.target.reset();
 // });
+
+
+// allTripObjs.indexOf(placeInput.value).destination
