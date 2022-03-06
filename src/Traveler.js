@@ -30,25 +30,8 @@ class Traveler {
     }, 0)
     this.totalThisYear = allTripTotal
     return allTripTotal
-
-
-
-
-    // const currentYear = this.today.split('/')[0]
-    // const totalPerPerson = 0;
-    // const allTripTotal = this.trips.filter(trip => {
-    //   const tripYear = trip.date.split('/')[0]
-    //   if (tripYear === currentYear) {
-    //     const totalLodging = trip.destination.estimatedLodgingCostPerDay * trip.duration
-    //     const totalFlight = trip.destination.estimatedFlightCostPerPerson * trip.people
-    //     const tenPercent = (totalLodging + totalFlight) * .1
-    //     totalPerPerson = (totalLodging + totalFlight + tenPercent) / trip.people
-    //   }
-    // })
-    // console.log(totalPerPerson)
-    // return totalPerPerson
-    // split date ('/), if dateArray[0] === '2022' then...
   }
+  
 }
 
 

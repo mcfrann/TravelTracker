@@ -10,6 +10,7 @@ const displayTrips = document.querySelector('.right-panel')
 const displayInGlide = document.querySelector('.glide__slides');
 const totalBanner = document.querySelector('.total-spent-banner');
 const dropDown = document.querySelector('#list-places');
+const estimatedCost = document.querySelector('.estimated-cost')
 
 //---------------UPDATES---------------------
 
@@ -19,9 +20,10 @@ const domUpdates = {
     return welcomeMessage.innerHTML =  `Welcome back,<br> ${currentTraveler.returnFirstName()}!`;
   },
 
-  displayTrips(allTrips) {
+  displayTrips(userTrips) {
     let counter = 0
-    const iteratedTrips = allTrips.forEach(trip => {
+    displayInGlide.innerHTML = ``
+    const iteratedTrips = userTrips.forEach(trip => {
       const tripDate = moment(trip.date)
       counter ++
       if (tripDate.isBefore()) {
@@ -61,9 +63,24 @@ const domUpdates = {
     })
   },
 
-  // showEstimatedCost() {
+  showEstimatedCost(placeInput, durationInput, travelersInput, allDestinationObjs) {
+    let total = null;
+    const destName = placeInput.value
+    const chosenDestination = allDestinationObjs.forEach(place => {
+      if (place.destination === destName) {
+        const totalWithoutPercent = (place.estimatedLodgingCostPerDay * durationInput.value) + (place.estimatedFlightCostPerPerson * travelersInput.value)
+        const tenPercent = totalWithoutPercent * .1
+        total = (totalWithoutPercent + tenPercent).toFixed(2)
+      }
+    })
+    estimatedCost.innerHTML = `
+    <p><i>The estimated total cost of this trip is $${total}<i></p>
+    `
+  },
 
-  // }
+  clearEstimatedCost() {
+    estimatedCost.innerHTML = ``
+  }
 }
 
 export default domUpdates
