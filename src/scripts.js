@@ -28,6 +28,9 @@ const fetchTrips = fetchAPI.getAllTrips();
 const fetchDestinations = fetchAPI.getAllDestinations();
 const today = moment().format('YYYY/MM/DD');
 const glide = new Glide('.glide').mount();
+let allTripObjs = null;
+let currentTraveler = null;
+let allDestinationObjs = null;
 
 //---------------- FUNCTIONS -----------------------
 
@@ -35,8 +38,8 @@ const renderPage = () => {
   Promise.all([fetchTravelers, fetchTrips, fetchDestinations])
     .then(item => {
       const allTravelers = item[0].travelers
-      const generatedTraveler = getRandomID(allTravelers);
-      const currentTraveler = new Traveler(generatedTraveler, today)
+      const generatedTraveler = getRandomID(allTravelers)
+      currentTraveler = new Traveler(generatedTraveler, today)
       const allTrips = item[1].trips.filter(trip => {
         if (trip.userID === currentTraveler.id) {
           return new Trip(trip)
@@ -51,10 +54,10 @@ const renderPage = () => {
         })
         return places
       })
-      const allDestinationObjs = item[2].destinations.map(destination => new Destination(destination))
-      const allTripObjs = item[1].trips.map(trip => new Trip(trip))
-      displayWelcome(currentTraveler);
-      displayAllTrips(allTrips);
+      allDestinationObjs = item[2].destinations.map(destination => new Destination(destination))
+      allTripObjs = item[1].trips.map(trip => new Trip(trip))
+      displayWelcome(currentTraveler)
+      displayAllTrips(allTrips)
       domUpdates.populateDestinationMenu(allDestinationObjs)
       setTimeout(() => domUpdates.displayTotalSpent(currentTraveler), 400)
     })
@@ -76,6 +79,18 @@ const displayAllTrips = (tripDestinations) => {
 const changeDestinationInput = () => {
   placeInput.value = placesList.options[placesList.selectedIndex].text;
   // domUpdates.showEstimatedCost();
+  // console.log(currentTraveler)
+}
+
+const findIndexOfInput = () => {
+  const dest = placeInput.value
+  const destID = allDestinationObjs.find(place => place.destination === dest)
+  // if (dest === place.destination) {
+  //   console.log("placeID", place.destinationID)
+  //   return place.destinationID
+  // }
+  console.log("destID", destID.id)
+  return destID.id
 }
 
 //----------------- SCRIPTS ----------------------
@@ -85,21 +100,24 @@ placesList.onchange = changeDestinationInput;
 
 //------------------ POST ------------------------
 
-// bookTripForm.addEventListener('submit', (e) => {
-//   e.preventDefault();
-//   const newTrip = {
-//     "id": 43453,
-//     "userID": currentTraveler.id,
-//     "destinationID": 23;
-//     "travelers": travelersInput.value;
-//     "date": dateInput.value.replaceAll('-', '/'),
-//     "status": 'pending',
-//     "suggestedActivities": []
-//   };
-//   fetchAPI.postNewTrip(newTrip);
-//   console.log(newTrip)
-//   e.target.reset();
-// });
+bookTripForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const newTrip = {
+    "id": allTripObjs.length + 1,
+    "userID": currentTraveler.id,
+    "destinationID": parseInt(findIndexOfInput()),
+    "travelers": parseInt(travelersInput.value),
+    "date": dateInput.value.replaceAll('-', '/'),
+    "status": 'pending',
+    "suggestedActivities": []
+  };
+  fetchAPI.postNewTrip(newTrip);
+  allTripObjs.push(newTrip)
+  console.log("All trips", allTripObjs)
+  console.log("Last element", allTripObjs.pop())
+  console.log("New Trip", newTrip)
+  e.target.reset();
+});
 
 
 // allTripObjs.indexOf(placeInput.value).destination
