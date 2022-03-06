@@ -9,6 +9,7 @@ const welcomeMessage = document.querySelector('.welcome-message');
 const displayTrips = document.querySelector('.right-panel')
 const displayInGlide = document.querySelector('.glide__slides');
 const totalBanner = document.querySelector('.total-spent-banner');
+const dropDown = document.querySelector('#list-places');
 
 //---------------UPDATES---------------------
 
@@ -50,6 +51,14 @@ const domUpdates = {
       <h1 class="total-message"><i>You haven't been on any trips yet this year... book one below!</i></h1>
       `
     }
+  },
+
+  populateDestinationMenu(allDestinationObjs) {
+    const allPlaces = allDestinationObjs.forEach(place => {
+      dropDown.innerHTML += `
+      <option id="${place.id}">${place.destination}</option>
+      `
+    })
   }
 }
 

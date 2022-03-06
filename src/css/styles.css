@@ -144,7 +144,8 @@ div {
 
 .plan-travel-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
   width: 80%;
@@ -169,6 +170,8 @@ p {
 }
 
 .book-trip-message {
+  margin-top: 5%;
+  margin-bottom: 5%;
   font-size: 300%;
   width: 100%;
 }
