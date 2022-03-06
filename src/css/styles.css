@@ -163,14 +163,17 @@ div {
 
 .right-side-booking {
   display: flex;
-  width: 40%;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-end;
   text-align: right;
+  height: 100%;
+  width: 40%;
 }
 
 .left-side-booking {
+  display: flex;
+  align-items: center;
   width: 60%;
 }
 
@@ -184,27 +187,46 @@ p {
   font-size: 120%;
 }
 
+.chosen-place {
+  text-align: right;
+}
+
+.submit-button {
+  border-radius: 15px;
+  border: none;
+  align-items: center;
+  text-align: center;
+  font-size: 25px;
+  font-family: 'Bebas Neue', cursive; 
+  color: #4a5759;
+  background-color: #f8edeb;
+  height: 25px;
+  width: 80px;
+}
+
 .glide__slide {
   width: 100%;
 }
 
 .book-trip-message {
-  margin-top: 2%;
+  margin-top: 5%;
   margin-right: 10%;
   margin-bottom: 2%;
   font-size: 300%;
-  width: 100%;
+  width: 89%;
 }
 
-form {
+.book-travel-form {
   margin-right: 10%;
-  font-size: 18px;
+  height: 30%;
+  width: 90%;
+  font-size: 150%;
 }
 
 .submit-button {
   text-align: right;
 }
 
-/* i {
-  font-size: 90%;
-} */
+.trip-message {
+  text-align: right;
+}

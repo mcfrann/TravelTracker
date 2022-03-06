@@ -28,7 +28,7 @@ const fetchAPI = {
       if(!response.ok) {
         throw new Error('Please fill out all input fields!')
       } else {
-        alert('Your trip has been submitted for review!')
+        throw 'Your trip has been submitted for review!'
         return response.json()
       }
     })

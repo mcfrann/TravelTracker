@@ -74,12 +74,12 @@ const domUpdates = {
       }
     })
     estimatedCost.innerHTML = `
-    <p><i>The estimated total cost of this trip is $${total}<i></p>
+    <p class="trip-message"><i>The estimated total cost of this trip is $${total}<i></p>
     `
   },
 
   clearEstimatedCost() {
-    estimatedCost.innerHTML = ``
+    estimatedCost.innerHTML = `<p class="trip-message" id="succes-message"><i>Success! Your trip has been submitted for review!</i></p>`
   }
 }
 

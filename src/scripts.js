@@ -114,6 +114,3 @@ bookTripForm.addEventListener('submit', (e) => {
   domUpdates.clearEstimatedCost()
   e.target.reset();
 });
-
-
-// allTripObjs.indexOf(placeInput.value).destination
