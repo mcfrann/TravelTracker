@@ -12,12 +12,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gideon+Roman&family=Neonderthaw&family=Open+Sans:wght@300;400&family=Oswald:wght@200&display=swap" rel="stylesheet">
 </head>
-<script>
-  function choosePlace() {
-  const places = document.getElementById("list-places");
-  document.getElementById("chosen-place").value = places.options[places.selectedIndex].text;
-  }
-</script>
 <body>
   <header>
     <section class="left-side">
@@ -36,9 +30,7 @@
       <div class="glide">
         <div class="glide__track" data-glide-el="track">
           <ul class="glide__slides">
-            <!-- <li class="glide__slide">1</li>
-            <li class="glide__slide">2</li>
-            <li class="glide__slide">3</li> -->
+            <!-- innerHTML for trip slides -->
           </ul>
         </div>
         <div class="glide__arrows" data-glide-el="controls">
@@ -60,29 +52,18 @@
       <label for="trip-duration">Duration:</label>
       <input class="trip-duration-input" id="trip-duration" type="text" placeholder=" 9"required/>
       <label for="trip-travelers">Number of Travelers:</label>
-      <input class="trip-travelers-input" id="trip-travelers" type="text" placeholder=" 6" required/>
+      <input class="trip-travelers-input" id="trip-travelers" type="text" placeholder=" 6" required/><br><br>
       <label for="list-places">Destinations:</label>
-      <select id="list-places" onchange="choosePlace()">
+      <select id="list-places">
         <!--innerHTML for places-->
       </select>
       <p class="chosen-place"> Your selected destination is:   
-        <input type = "text" id = "chosen-place" size = "20" </p> 
+        <input type = "text" id = "chosen-place" size = "20" </p><br> 
+      <button class="submit-trip">Submit trip for review</button>
     </form>
-    <!--input fields for date, duration, # travelers, drop down of places
-    show estimated cost-->
-
   </section>
-
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
   <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
-
-  <script>
-    const config = {
-      type: 'carousel',
-      perView: 1
-    }
-    new Glide('.glide', config).mount()
-  </script>
 </body>
 </html>
