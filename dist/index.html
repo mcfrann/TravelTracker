@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Travel Tracker!</title>
   <link rel="stylesheet" href="../src/css/styles.css">
+  <link rel="stylesheet" href="../node_modules/@glidejs/glide/dist/css/glide.core.min.css">
+  <link rel="stylesheet" href="../node_modules/@glidejs/glide/dist/css/glide.theme.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gideon+Roman&family=Neonderthaw&family=Open+Sans:wght@300;400&family=Oswald:wght@200&display=swap" rel="stylesheet">
@@ -17,7 +19,7 @@
       <h2 class="travel-quote">Work, Travel, Save, Repeat.</h2>
     </section>
     <section class="right-side">
-      <img class="travel-banner" src="./images/Untitled design (4).png" />
+      <img class="travel-banner" src="./images/Untitled design (4).png" alt="travel photo collage"/>
     </section>
   </header>
   <div class="trips-container">
@@ -25,19 +27,50 @@
       <h1 class="your-travels">Your Travels:</h1>
     </section>
     <section class="right-panel">
-
+      <div class="glide">
+        <div class="glide__track" data-glide-el="track">
+          <ul class="glide__slides">
+            <!-- innerHTML for trip slides -->
+          </ul>
+        </div>
+        <div class="glide__arrows" data-glide-el="controls">
+          <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
+          <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+        </div>
+      </div>
+      </div>
     </section>
   </div>
   <section class="total-spent-banner">
     <!--innerHTML for total spent-->
   </section>
   <section class="plan-travel-container">
-    <!--input fields for date, duration, # travelers, drop down of places
-    show estimated cost-->
+    <section class="left-side-booking">
+      <img class="booking-banner" src="./images/Untitled design (5).png" alt="travel photo collage for booking"/>
+    </section>
+    <section class="right-side-booking">
+      <h1 class="book-trip-message">Ready for a trip?</h1>
+      <form class="book-travel-form">
+        <label for="trip-date">Date:</label>
+        <input class="trip-date-input" id="trip-date" type="date" required/><br>
+        <label for="trip-duration">  Duration:</label>
+        <input class="trip-duration-input" id="trip-duration" type="text" placeholder=" 9"required/><br>
+        <label for="trip-travelers">  Number of Travelers:</label>
+        <input class="trip-travelers-input" id="trip-travelers" type="text" placeholder=" 6" required/><br>
+        <label for="list-places">Destinations:</label>
+        <select id="list-places">
+          <!--innerHTML for places-->
+        </select>
+        <p class="chosen-place"> Your selected destination is:   
+          <input type = "text" id = "chosen-place" size = "20" </p><br> 
+          <input class="submit-button" type="submit" value="Submit!">
+          <br>
+        <!-- <button class="submit-trip">Submit trip for review</button> -->
+      </form>
+    </section>
   </section>
-
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
-
+  <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
 </body>
 </html>
