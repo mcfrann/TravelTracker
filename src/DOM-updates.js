@@ -41,9 +41,15 @@ const domUpdates = {
   },
 
   displayTotalSpent(currentTraveler) {
-    totalBanner.innerHTML = `
-    <h1 class="total-message"><i>You've spent a total of $${currentTraveler.returnTotalSpent()} on adventures this year!</i></h1>
-    `
+    if (currentTraveler.returnTotalSpent()) {
+      totalBanner.innerHTML = `
+      <h1 class="total-message"><i>You've spent a total of $${currentTraveler.totalThisYear} on adventures this year!</i></h1>
+      `
+    } else {
+      totalBanner.innerHTML = `
+      <h1 class="total-message"><i>You haven't been on any trips yet this year... book one below!</i></h1>
+      `
+    }
   }
 }
 
