@@ -59,7 +59,11 @@ const domUpdates = {
       <option id="${place.id}">${place.destination}</option>
       `
     })
-  }
+  },
+
+  // showEstimatedCost() {
+
+  // }
 }
 
 export default domUpdates

@@ -12,7 +12,13 @@ import Glide from '@glidejs/glide';
 
 //---------------QUERY SELECTORS-----------------
 
-
+const placesList = document.getElementById("list-places");
+const bookTripForm = document.querySelector(".book-travel-form");
+const placeInput = document.querySelector('#chosen-place');
+const dateInput = document.querySelector('.trip-date-input');
+const durationInput = document.querySelector('.trip-duration-input');
+const travelersInput = document.querySelector('.trip-travelers-input');
+const submit = document.querySelector('.submit-trip');
 
 //--------------- GLOBAL VARIABLES ---------------
 
@@ -45,6 +51,7 @@ const renderPage = () => {
         return places
       })
       const allDestinationObjs = item[2].destinations.map(destination => new Destination(destination))
+      const allTripObjs = item[1].trips.map(trip => new Trip(trip))
       displayWelcome(currentTraveler);
       displayAllTrips(allTrips);
       domUpdates.populateDestinationMenu(allDestinationObjs)
@@ -65,8 +72,29 @@ const displayAllTrips = (tripDestinations) => {
   domUpdates.displayTrips(tripDestinations);
 }
 
+const changeDestinationInput = () => {
+  placeInput.value = placesList.options[placesList.selectedIndex].text;
+  // domUpdates.showEstimatedCost();
+}
+
 //----------------- SCRIPTS ----------------------
 
 window.onload = (event) => (event, renderPage());
+placesList.onchange = changeDestinationInput;
 
 //------------------ POST ------------------------
+
+// bookTripForm.addEventListener('submit', (e) => {
+//   e.preventDefault();
+//   const newTrip = {
+//     "id": allTripObjs.length + 1,
+//     "userID": currentTraveler.id,
+//     "destinationID": null;
+//     "travelers": travelersInput.value;
+//     "date": dateInput.value.replaceAll('-', '/'),
+//     "status": 'pending',
+//     "suggestedActivities": []
+//   };
+//   fetchAPI.postNewTrip(newTrip);
+//   e.target.reset();
+// });
