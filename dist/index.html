@@ -12,6 +12,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gideon+Roman&family=Neonderthaw&family=Open+Sans:wght@300;400&family=Oswald:wght@200&display=swap" rel="stylesheet">
 </head>
+<script>
+  function choosePlace() {
+  const places = document.getElementById("list-places");
+  document.getElementById("chosen-place").value = places.options[places.selectedIndex].text;
+  }
+</script>
 <body>
   <header>
     <section class="left-side">
@@ -55,6 +61,12 @@
       <input class="trip-duration-input" id="trip-duration" type="text" placeholder=" 9"required/>
       <label for="trip-travelers">Number of Travelers:</label>
       <input class="trip-travelers-input" id="trip-travelers" type="text" placeholder=" 6" required/>
+      <label for="list-places">Destinations:</label>
+      <select id="list-places" onchange="choosePlace()">
+        <!--innerHTML for places-->
+      </select>
+      <p class="chosen-place"> Your selected destination is:   
+        <input type = "text" id = "chosen-place" size = "20" </p> 
     </form>
     <!--input fields for date, duration, # travelers, drop down of places
     show estimated cost-->
