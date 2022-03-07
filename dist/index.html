@@ -6,8 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Travel Tracker!</title>
   <link rel="stylesheet" href="../src/css/styles.css">
-  <link rel="stylesheet" href="../node_modules/@glidejs/glide/dist/css/glide.core.min.css">
-  <link rel="stylesheet" href="../node_modules/@glidejs/glide/dist/css/glide.theme.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gideon+Roman&family=Neonderthaw&family=Open+Sans:wght@300;400&family=Oswald:wght@200&display=swap" rel="stylesheet">
@@ -27,18 +25,7 @@
       <h1 class="your-travels">Your Travels:</h1>
     </section>
     <section class="right-panel">
-      <div class="glide">
-        <div class="glide__track" data-glide-el="track">
-          <ul class="glide__slides">
-            <!-- innerHTML for trip slides -->
-          </ul>
-        </div>
-        <div class="glide__arrows" data-glide-el="controls">
-          <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-          <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
-        </div>
-      </div>
-      </div>
+      
     </section>
   </div>
   <section class="total-spent-banner">
@@ -52,20 +39,26 @@
       <h1 class="book-trip-message">Ready for a trip?</h1>
       <form class="book-travel-form">
         <label for="trip-date">Date:</label>
-        <input class="trip-date-input" id="trip-date" type="date" required/><br>
+        <input class="trip-date-input" name="setTodaysDate" id="trip-date" type="date" required/>
+        <script type='text/javascript'>
+          var today = new Date().toISOString().split('T')[0];
+          document.getElementsByName("setTodaysDate")[0].setAttribute('min', today);
+        </script>
+        <br>
         <label for="trip-duration">  Duration:</label>
         <input class="trip-duration-input" id="trip-duration" type="text" placeholder=" 9"required/><br>
         <label for="trip-travelers">  Number of Travelers:</label>
         <input class="trip-travelers-input" id="trip-travelers" type="text" placeholder=" 6" required/><br>
         <label for="list-places">Destinations:</label>
         <select id="list-places">
+          <option> - choose a place - </option>
           <!--innerHTML for places-->
-        </select>
-        <p class="chosen-place"> Your selected destination is:   
-          <input type = "text" id = "chosen-place" size = "20" </p><br> 
+        </select><br>
+          <label for="chosen-place">  Your selected destination is:</label>
+          <input type ="text" id="chosen-place" size ="20"> <br> 
           <input class="submit-button" type="submit" value="Submit!">
           <br>
-        <!-- <button class="submit-trip">Submit trip for review</button> -->
+          <section class="estimated-cost"></section>
       </form>
     </section>
   </section>

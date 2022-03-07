@@ -1,3 +1,5 @@
+import { parseTwoDigitYear } from "moment"
+
 const fetchAPI = {
   getAllTravelers() {
     return fetch('http://localhost:3001/api/v1/travelers')
@@ -26,9 +28,9 @@ const fetchAPI = {
     })
     .then(response => {
       if(!response.ok) {
-        throw new Error('Please fill out all input fields!')
+        throw new Error('Enter the correct format in the fields.')
       } else {
-        alert('Your trip has been submitted for review!')
+        throw 'Your trip has been submitted for review!'
         return response.json()
       }
     })
