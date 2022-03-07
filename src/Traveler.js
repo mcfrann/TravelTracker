@@ -23,8 +23,9 @@ class Traveler {
         const flightPerPerson = acc + trip.destination.estimatedFlightCostPerPerson
         const totalWithoutPercent = totalLodgingPerPerson + flightPerPerson
         const tenPercent = totalWithoutPercent * .1
-        const total = (totalWithoutPercent + tenPercent).toFixed(2)
-        return total
+        const total = (totalWithoutPercent + tenPercent)
+        const result = parseFloat(total).toFixed(2)
+        return result
       }
       return acc
     }, 0)

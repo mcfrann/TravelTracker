@@ -58,7 +58,8 @@ const renderPage = () => {
       displayWelcome(currentTraveler)
       displayUserTrips(userTrips)
       domUpdates.populateDestinationMenu(allDestinationObjs)
-      setTimeout(() => domUpdates.displayTotalSpent(currentTraveler), 400)
+      domUpdates.displayTotalSpent(currentTraveler)
+      console.log(userTrips)
     })
 }
 
@@ -106,9 +107,10 @@ bookTripForm.addEventListener('submit', (e) => {
     suggestedActivities: []
   };
   fetchAPI.postNewTrip(newTrip)
-  newTrip["destination"] = findIndexOfInput();
+  newTrip["destination"] = findIndexOfInput()
   console.log(userTrips)
   userTrips.push(newTrip)
+  console.log("new", userTrips)
   domUpdates.displayTrips(userTrips)
   domUpdates.clearEstimatedCost()
   e.target.reset();
