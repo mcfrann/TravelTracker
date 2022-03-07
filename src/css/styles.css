@@ -117,7 +117,6 @@ p {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  /* align-items: center; */
   margin-top: 1.5%;
   width: 80%;
   height: 60vh;
@@ -133,7 +132,6 @@ div {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  /* height: 100%; */
   width: 35%;
 }
 
@@ -148,7 +146,6 @@ div {
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  /* height: 100%; */
   width: 65%;
   margin: 0;
   overflow-x: scroll;
@@ -164,17 +161,13 @@ div {
   background-color: #f8edeb;
   border-radius: 35px;
   height: 90%;
-  /* width: 60%; */
   margin: 3%;
 }
 
 .tile-image {
   width: 300px;
   height: 300px;
-  /* margin: 5%; */
   object-fit: cover;
-  /* border-radius: 35px; */
-  /* margin: 5%; */
 }
 
 /*---------------- DASHBOARD - TOTAL SPENT ------------*/
@@ -201,9 +194,6 @@ div {
 .plan-travel-container {
   display: flex;
   flex-direction: row;
-  /* justify-content: center; */
-  /* align-items: flex-end; */
-  /* text-align: right; */
   margin-bottom: 3%;
   width: 80%;
   height: 45vh;
@@ -215,7 +205,7 @@ div {
 .left-side-booking {
   display: flex;
   align-items: center;
-  width: 50%;
+  width: 40%;
 }
 
 .booking-banner {
@@ -229,8 +219,8 @@ div {
   justify-content: flex-start;
   align-items: flex-end;
   text-align: right;
-  /* height: 100%; */
-  width: 50%;
+  height: 100%;
+  width: 60%;
 }
 
 .book-travel-form {
@@ -265,7 +255,7 @@ div {
 }
 
 .trip-message {
-  font-size: 90%;
+  font-size: 60%;
   text-align: right;
 }
 
