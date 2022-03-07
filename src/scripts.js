@@ -47,35 +47,15 @@ const toggleHidden = (page) => {
   page.classList.toggle('hidden');
 }
 
-// const checkCred = (event) => { 
-//   const userString = null;
-//   const password = null;
-//   if (username.value && passwordInput.value) {
-//     event.preventDefault()
-//     userString = username.value.slice(0, - 2)
-//     console.log('user', userString)
-//     userID = parseInt(username.value.slice(-2))
-//     console.log('id', userID)
-//     password = passwordInput.value
-//     console.log("pass", password)
-//   }
-//   if (userString === "traveler" && password === "traveler" && userID < 51) {
-//     loginToDashboard()
-//   } else {
-//     alert("Make sure your username and/or password are correct.")
-//   }
-// }
-
 const loginToDashboard = () => {
-  // checkCred()
   toggleHidden(loginPage);
   toggleHidden(travelerDashboard)
   renderPage();
 }
 
 const checkCred = () => {
-  const userString = username.value.slice(0, - 2)
-  userID = parseInt(username.value.slice(-2))
+  const userString = username.value.slice(0, 8)
+  userID = parseInt(username.value.slice(8))
   if ((userString === 'traveler') && (userID < 51) && (passwordInput.value === 'traveler')) {
     loginToDashboard()
   } else {
@@ -99,7 +79,6 @@ const renderPage = () => {
       allTravelers = item[0].travelers.map(traveler => new Traveler(traveler, today))
       allTrips = item[1].trips.map(trip => new Trip(trip))
       allDestinations = item[2].destinations.map(destination => new Destination(destination))
-      // instantiateClasses()
       assignCurrentUser()
       findUsersTrips()
       displayWelcome(currentTraveler)
@@ -173,33 +152,3 @@ bookTripForm.addEventListener('submit', (e) => {
   domUpdates.clearEstimatedCost()
   e.target.reset();
 });
-
-
-/* PREVIOUS PROMISEALL
-
- // const allTravelers = item[0].travelers.map(traveler => new Traveler(traveler, today))
-      // allTripObjs = item[1].trips.map(trip => new Trip(trip))
-      // allDestinationObjs = item[2].destinations.map(destination => new Destination(destination))
-      // const userSignIn = allTravelers.find(traveler => traveler.id === userID)
-      // currentTraveler = new Traveler(userSignIn, today)
-      // const generatedTraveler = getRandomID(allTravelers)
-      // console.log(generatedTraveler)
-      // userTrips = allTripObjs.filter(trip => trip.userID === currentTraveler.id)
-      // currentTraveler.trips = userTrips
-      // const tripDestinations = userTrips.forEach(trip => {
-        //   const places = allDestinationObjs.forEach(destination => {
-          //     if (destination.id === trip.destinationID) {
-            //       trip.destination = destination
-            //     }
-            //   })
-            //   return places
-            // })
-            
-            */
-
-
-
-            // const getRandomID = array => {
-//   const randomID = array[Math.floor(Math.random() * array.length)]
-//   return randomID
-// }
