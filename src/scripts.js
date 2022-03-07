@@ -110,7 +110,6 @@ bookTripForm.addEventListener('submit', (e) => {
   newTrip["destination"] = findIndexOfInput()
   console.log(userTrips)
   userTrips.push(newTrip)
-  console.log("new", userTrips)
   domUpdates.displayTrips(userTrips)
   domUpdates.clearEstimatedCost()
   e.target.reset();
