@@ -1,5 +1,5 @@
 import moment from "moment";
-// import Glide from '@glidejs/glide';
+
 
 
 
@@ -11,6 +11,7 @@ const displayInGlide = document.querySelector('.glide__slides');
 const totalBanner = document.querySelector('.total-spent-banner');
 const dropDown = document.querySelector('#list-places');
 const estimatedCost = document.querySelector('.estimated-cost')
+const rightPanel = document.querySelector('.right-panel')
 
 //---------------UPDATES---------------------
 
@@ -22,21 +23,29 @@ const domUpdates = {
 
   displayTrips(userTrips) {
     let counter = 0
-    displayInGlide.innerHTML = ``
+    rightPanel.innerHTML = ``
     const iteratedTrips = userTrips.forEach(trip => {
       const tripDate = moment(trip.date)
       counter ++
       if (tripDate.isBefore()) {
-        displayInGlide.innerHTML += `
-        <li class="glide__slide" id="${counter.toString()}"/>
-          HERE
-        </li>
+        rightPanel.innerHTML += `
+        <section class="trip" id="${counter.toString()}">
+            <h2 class="trip-title">${trip.destination.destination}</h2>
+            <img class="tile-image" src="${trip.destination.image}" alt="${trip.destination.alt}"/>
+            <p class="trip-description">Status was ${trip.status}!<br>
+            ${trip.travelers.toString()} travelers, ${trip.duration} days.<br>
+            When: ${trip.date} - (PASSED)</p>
+        </section>
         `
       } else if (tripDate.isAfter()) {
-        displayInGlide.innerHTML += `
-        <li class="glide__slide" id="${counter.toString()}"/>
-          There
-        </li>
+        rightPanel.innerHTML += `
+        <section class="trip" id="${counter.toString()}">
+            <h2 class="trip-title">${trip.destination.destination}</h2>
+            <img class="tile-image" src="${trip.destination.image}" alt="${trip.destination.alt}"/>
+            <p class="trip-description">Status is ${trip.status}!<br>
+            ${trip.travelers.toString()} travelers, ${trip.duration} days.<br>
+            When: ${trip.date} - (UPCOMING)</p>
+        </section>
         `
       }
     })

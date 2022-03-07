@@ -9,7 +9,6 @@ import Traveler from '../src/Traveler';
 import Trip from '../src/Trip';
 import Destination from '../src/Destination';
 import fetchAPI from '../src/API-calls.js';
-import Glide from '@glidejs/glide';
 
 //---------------QUERY SELECTORS-----------------
 
@@ -27,7 +26,6 @@ const fetchTravelers = fetchAPI.getAllTravelers();
 const fetchTrips = fetchAPI.getAllTrips();
 const fetchDestinations = fetchAPI.getAllDestinations();
 const today = moment().format('YYYY/MM/DD');
-const glide = new Glide('.glide').mount();
 let allTripObjs = null;
 let currentTraveler = null;
 let allDestinationObjs = null;
@@ -80,7 +78,6 @@ const displayUserTrips = (tripDestinations) => {
 const changeDestinationInput = () => {
   placeInput.value = placesList.options[placesList.selectedIndex].text;
   domUpdates.showEstimatedCost(placeInput, durationInput, travelersInput, allDestinationObjs);
-  // console.log(currentTraveler)
 }
 
 const findIndexOfInput = () => {
