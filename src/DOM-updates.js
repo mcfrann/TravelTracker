@@ -64,18 +64,18 @@ const domUpdates = {
     }
   },
 
-  populateDestinationMenu(allDestinationObjs) {
-    const allPlaces = allDestinationObjs.forEach(place => {
+  populateDestinationMenu(allDestinations) {
+    const allPlaces = allDestinations.forEach(place => {
       dropDown.innerHTML += `
       <option id="${place.id}">${place.destination}</option>
       `
     })
   },
 
-  showEstimatedCost(placeInput, durationInput, travelersInput, allDestinationObjs) {
+  showEstimatedCost(placeInput, durationInput, travelersInput, allDestinations) {
     let total = null;
     const destName = placeInput.value
-    const chosenDestination = allDestinationObjs.forEach(place => {
+    const chosenDestination = allDestinations.forEach(place => {
       if (place.destination === destName) {
         const totalWithoutPercent = (place.estimatedLodgingCostPerDay * durationInput.value) + (place.estimatedFlightCostPerPerson * travelersInput.value)
         const tenPercent = totalWithoutPercent * .1

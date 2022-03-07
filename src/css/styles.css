@@ -7,7 +7,7 @@ body {
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(45deg, #edafb8, #fae1dd);
+  background: linear-gradient(330deg, #edafb8, #fae1dd);
   color: #4a5759;
   font-family: 'Bebas Neue', cursive;
   font-family: 'Gideon Roman', cursive;
@@ -278,3 +278,4 @@ div {
 .hidden {
   display: none!important;
 }
+
