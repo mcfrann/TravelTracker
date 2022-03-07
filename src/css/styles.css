@@ -1,13 +1,9 @@
-html {
-  height: 100&;
-}
-
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(45deg, #edafb8, #fae1dd);
+  background: linear-gradient(330deg, #edafb8, #fae1dd) no-repeat center center fixed;
   color: #4a5759;
   font-family: 'Bebas Neue', cursive;
   font-family: 'Gideon Roman', cursive;
@@ -20,6 +16,49 @@ body {
   border: 2px solid red;
 } */
 
+/*------------------- LOGIN PAGE ------------------*/
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  height: 40vh;
+  width: 50%;
+}
+
+.login {
+  border-radius: 15px;
+  border: none;
+  align-items: center;
+  text-align: center;
+  font-size: 25px;
+  font-family: 'Bebas Neue', cursive; 
+  color: #4a5759;
+  background-color: #E8E8E4;
+  height: 25px;
+  width: 80px;
+}
+
+/*---------------- DASHBOARD - HEADER ----------------------*/
+
+.traveler-dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
 header {
   display: flex;
   flex-direction: row;
@@ -31,26 +70,22 @@ header {
   border-radius: 35px;
 }
 
+h1 {
+  width: 100%;
+  margin: 0%;
+  font-family: 'Bebas Neue', cursive;
+}
+
+p {
+  text-align: center;
+  font-size: 120%;
+}
+
 .left-side {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* height: 100%; */
   width: 50%;
-}
-
-h1 {
-  width: 100%;
-  margin: 0%;
-  /* margin-left: 5%; */
-  font-family: 'Bebas Neue', cursive;
-  font-size: 500%;
-}
-
-
-h2 {
-  font-size: 200%;
-  font-weight: bold;
 }
 
 .welcome-message {
@@ -74,14 +109,14 @@ h2 {
 .travel-banner {
   height: 100%;
   border-radius: 35px;
-  /* width: 90%; */
 }
+
+/*------------------- DASHBOARD - TRIPS --------------------*/
 
 .trips-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  /* align-items: center; */
   margin-top: 1.5%;
   width: 80%;
   height: 60vh;
@@ -97,7 +132,6 @@ div {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  /* height: 100%; */
   width: 35%;
 }
 
@@ -112,7 +146,6 @@ div {
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  /* height: 100%; */
   width: 65%;
   margin: 0;
   overflow-x: scroll;
@@ -128,19 +161,16 @@ div {
   background-color: #f8edeb;
   border-radius: 35px;
   height: 90%;
-  /* width: 60%; */
   margin: 3%;
 }
 
 .tile-image {
   width: 300px;
   height: 300px;
-  /* margin: 5%; */
   object-fit: cover;
-  /* border-radius: 35px; */
-  /* margin: 5%; */
 }
 
+/*---------------- DASHBOARD - TOTAL SPENT ------------*/
 
 .total-spent-banner {
   display: flex;
@@ -159,12 +189,11 @@ div {
   font-size: 200%;
 }
 
+/*-------------- DASHBOARD - BOOK TRIP ----------------*/
+
 .plan-travel-container {
   display: flex;
   flex-direction: row;
-  /* justify-content: center; */
-  /* align-items: flex-end; */
-  /* text-align: right; */
   margin-bottom: 3%;
   width: 80%;
   height: 45vh;
@@ -173,20 +202,10 @@ div {
   background-color: #f8edeb;
 }
 
-.right-side-booking {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-end;
-  text-align: right;
-  /* height: 100%; */
-  width: 40%;
-}
-
 .left-side-booking {
   display: flex;
   align-items: center;
-  width: 60%;
+  width: 40%;
 }
 
 .booking-banner {
@@ -194,9 +213,21 @@ div {
   height: 100%;
 }
 
-p {
-  text-align: center;
-  font-size: 120%;
+.right-side-booking {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  text-align: right;
+  height: 100%;
+  width: 60%;
+}
+
+.book-travel-form {
+  margin-right: 10%;
+  height: 80%;
+  width: 90%;
+  font-size: 150%;
 }
 
 .chosen-place {
@@ -221,20 +252,60 @@ p {
   margin-right: 10%;
   margin-bottom: 2%;
   font-size: 300%;
-  /* width: 89%; */
-}
-
-.book-travel-form {
-  margin-right: 10%;
-  /* height: 30%; */
-  /* width: 90%; */
-  font-size: 150%;
-}
-
-.submit-button {
-  text-align: right;
 }
 
 .trip-message {
+  font-size: 60%;
   text-align: right;
+}
+
+.hidden {
+  display: none!important;
+}
+
+/*------------- RESPONSIVE SETTINGS -------------*/
+
+
+@media screen and (min-width: 951px) {
+  h1 {
+    font-size: 500%;
+  }
+  h2 {
+    font-size: 200%;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  h1 {
+    font-size: 350%;
+    margin-left: 0;
+  }
+  h2 {
+    font-size: 150%;
+    margin-left: 0;
+  }
+  .travel-banner {
+    display: none;
+  }
+  .booking-banner {
+    display: none;
+  }
+  .right-side {
+    display: none;
+  }
+  .left-side {
+    width: 100%;
+  }
+  .left-side-booking {
+    display: none;
+  }
+  .right-side-booking {
+    width: 100%;
+  }
+  .book-travel-form {
+    margin-right: 10%;
+    margin-left: 10%;
+    width: 100%;
+    font-size: 150%;
+  }
 }
