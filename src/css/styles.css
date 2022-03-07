@@ -73,15 +73,7 @@ header {
 h1 {
   width: 100%;
   margin: 0%;
-  /* margin-left: 5%; */
   font-family: 'Bebas Neue', cursive;
-  font-size: 500%;
-}
-
-
-h2 {
-  font-size: 200%;
-  font-weight: bold;
 }
 
 p {
@@ -93,7 +85,6 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* height: 100%; */
   width: 50%;
 }
 
@@ -118,7 +109,6 @@ p {
 .travel-banner {
   height: 100%;
   border-radius: 35px;
-  /* width: 90%; */
 }
 
 /*------------------- DASHBOARD - TRIPS --------------------*/
@@ -225,7 +215,7 @@ div {
 .left-side-booking {
   display: flex;
   align-items: center;
-  width: 60%;
+  width: 50%;
 }
 
 .booking-banner {
@@ -240,13 +230,13 @@ div {
   align-items: flex-end;
   text-align: right;
   /* height: 100%; */
-  width: 40%;
+  width: 50%;
 }
 
 .book-travel-form {
   margin-right: 10%;
-  /* height: 30%; */
-  /* width: 90%; */
+  height: 80%;
+  width: 90%;
   font-size: 150%;
 }
 
@@ -272,10 +262,10 @@ div {
   margin-right: 10%;
   margin-bottom: 2%;
   font-size: 300%;
-  /* width: 89%; */
 }
 
 .trip-message {
+  font-size: 90%;
   text-align: right;
 }
 
@@ -283,3 +273,49 @@ div {
   display: none!important;
 }
 
+/*------------- RESPONSIVE SETTINGS -------------*/
+
+
+@media screen and (min-width: 951px) {
+  h1 {
+    font-size: 500%;
+  }
+  h2 {
+    font-size: 200%;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  h1 {
+    font-size: 350%;
+    margin-left: 0;
+  }
+  h2 {
+    font-size: 150%;
+    margin-left: 0;
+  }
+  .travel-banner {
+    display: none;
+  }
+  .booking-banner {
+    display: none;
+  }
+  .right-side {
+    display: none;
+  }
+  .left-side {
+    width: 100%;
+  }
+  .left-side-booking {
+    display: none;
+  }
+  .right-side-booking {
+    width: 100%;
+  }
+  .book-travel-form {
+    margin-right: 10%;
+    margin-left: 10%;
+    width: 100%;
+    font-size: 150%;
+  }
+}
