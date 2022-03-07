@@ -1,13 +1,9 @@
-html {
-  height: 100&;
-}
-
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(330deg, #edafb8, #fae1dd);
+  background: linear-gradient(330deg, #edafb8, #fae1dd) no-repeat center center fixed;
   color: #4a5759;
   font-family: 'Bebas Neue', cursive;
   font-family: 'Gideon Roman', cursive;
@@ -54,6 +50,14 @@ body {
 }
 
 /*---------------- DASHBOARD - HEADER ----------------------*/
+
+.traveler-dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
 
 header {
   display: flex;
