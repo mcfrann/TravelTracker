@@ -14,7 +14,7 @@ import fetchAPI from '../src/API-calls.js';
 
 const placesList = document.getElementById("list-places");
 const bookTripForm = document.querySelector(".book-travel-form");
-const placeInput = document.querySelector('#chosen-place');
+const placeInput = document.getElementById('chosen-place');
 const dateInput = document.querySelector('.trip-date-input');
 const durationInput = document.querySelector('.trip-duration-input');
 const travelersInput = document.querySelector('.trip-travelers-input');
@@ -83,7 +83,7 @@ const changeDestinationInput = () => {
 const findIndexOfInput = () => {
   const dest = placeInput.value
   const destID = allDestinationObjs.find(place => place.destination === dest)
-  return destID.id
+  return destID
 }
 
 //----------------- SCRIPTS ----------------------
@@ -98,7 +98,7 @@ bookTripForm.addEventListener('submit', (e) => {
   const newTrip = {
     id: allTripObjs.length + 1,
     userID: currentTraveler.id,
-    destinationID: parseInt(findIndexOfInput()),
+    destinationID: parseInt(findIndexOfInput().id),
     travelers: parseInt(travelersInput.value),
     date: dateInput.value.replaceAll('-', '/'),
     duration: parseInt(durationInput.value),
@@ -106,6 +106,8 @@ bookTripForm.addEventListener('submit', (e) => {
     suggestedActivities: []
   };
   fetchAPI.postNewTrip(newTrip)
+  newTrip["destination"] = findIndexOfInput();
+  console.log(userTrips)
   userTrips.push(newTrip)
   domUpdates.displayTrips(userTrips)
   domUpdates.clearEstimatedCost()

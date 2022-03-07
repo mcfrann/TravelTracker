@@ -26,7 +26,7 @@ header {
   align-items: center;
   background-color: #f8edeb;
   margin-top: 3%;
-  height: 40vh;
+  height: 50vh;
   width: 80%;
   border-radius: 35px;
 }
@@ -35,7 +35,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%;
+  /* height: 100%; */
   width: 50%;
 }
 
@@ -44,7 +44,7 @@ h1 {
   margin: 0%;
   /* margin-left: 5%; */
   font-family: 'Bebas Neue', cursive;
-  font-size: 400%;
+  font-size: 500%;
 }
 
 
@@ -54,13 +54,13 @@ h2 {
 }
 
 .welcome-message {
-  margin-left: 5%;
+  margin-left: 10%;
 }
 
 .travel-quote {
   width: 100%;
   margin: 1%;
-  margin-left: 5%;
+  margin-left: 10%;
 }
 
 .right-side {
@@ -97,7 +97,7 @@ div {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  /* height: 100%; */
   width: 35%;
 }
 
@@ -129,7 +129,7 @@ div {
   border-radius: 35px;
   height: 90%;
   /* width: 60%; */
-  margin: 5%;
+  margin: 3%;
 }
 
 .tile-image {
@@ -179,7 +179,7 @@ div {
   justify-content: flex-start;
   align-items: flex-end;
   text-align: right;
-  height: 100%;
+  /* height: 100%; */
   width: 40%;
 }
 
@@ -221,13 +221,13 @@ p {
   margin-right: 10%;
   margin-bottom: 2%;
   font-size: 300%;
-  width: 89%;
+  /* width: 89%; */
 }
 
 .book-travel-form {
   margin-right: 10%;
-  height: 30%;
-  width: 90%;
+  /* height: 30%; */
+  /* width: 90%; */
   font-size: 150%;
 }
 
