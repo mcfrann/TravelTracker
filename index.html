@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Travel Tracker!</title>
+  <link rel="stylesheet" href="../src/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gideon+Roman&family=Neonderthaw&family=Open+Sans:wght@300;400&family=Oswald:wght@200&display=swap" rel="stylesheet">
+</head>
+<body>
+  <section class="login-page">
+    <h1 class="login-page-header">Your Travel Tracker</h1>
+    <div class="login-container">
+      <form>
+        <h2 class="login-message">Let's Go</h2>
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" required><br><br>
+        <label for="password">Password:</label><br>
+        <input type="text" id="password" required><br><br>
+        <button class="login">Log In</button>
+      </form>
+    </div>
+  </section>
+  <section class="traveler-dashboard hidden">
+    <header>
+      <section class="left-side">
+        <h1 class="welcome-message"></h1>
+        <h2 class="travel-quote">Work, Travel, Save, Repeat.</h2>
+      </section>
+      <section class="right-side">
+        <img class="travel-banner" src="./images/Untitled design (4).png" alt="travel photo collage"/>
+      </section>
+    </header>
+    <div class="trips-container">
+      <section class="left-panel">
+        <h1 class="your-travels">Your Travels:</h1>
+      </section>
+      <section class="right-panel">
+        <!--innerHTML for trip tiles-->
+      </section>
+    </div>
+    <section class="total-spent-banner">
+      <!--innerHTML for total spent-->
+    </section>
+    <section class="plan-travel-container">
+      <section class="left-side-booking">
+        <img class="booking-banner" src="./images/Untitled design (5).png" alt="travel photo collage for booking"/>
+      </section>
+      <section class="right-side-booking">
+        <h1 class="book-trip-message">Ready for a trip?</h1>
+        <form class="book-travel-form">
+          <label for="trip-date">Date:</label>
+          <input class="trip-date-input" name="setTodaysDate" id="trip-date" type="date" required/>
+          <script type='text/javascript'>
+            var today = new Date().toISOString().split('T')[0];
+            document.getElementsByName("setTodaysDate")[0].setAttribute('min', today);
+          </script>
+          <br>
+          <label for="trip-duration">  Duration:</label>
+          <input class="trip-duration-input" id="trip-duration" type="text" placeholder=" 9"required/><br>
+          <label for="trip-travelers">  Number of Travelers:</label>
+          <input class="trip-travelers-input" id="trip-travelers" type="text" placeholder=" 6" required/><br>
+          <label for="list-places">Destinations:</label>
+          <select id="list-places">
+            <option> - choose a place - </option>
+            <!--innerHTML for places-->
+          </select><br>
+            <label for="chosen-place">  Your selected destination is:</label>
+            <input type ="text" id="chosen-place" size ="20"> <br> 
+            <input class="submit-button" type="submit" value="Submit!">
+            <br>
+            <section class="estimated-cost"></section>
+        </form>
+      </section>
+    </section>
+  </section>
+  <script src="bundle.js"></script>
+</body>
+</html>
