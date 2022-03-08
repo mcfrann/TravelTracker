@@ -1,6 +1,4 @@
 import {expect} from 'chai';
-import Traveler from '../src/Traveler';
-import Trip from '../src/Trip';
 import Destination from '../src/Destination';
 import dataTest from './data-test';
 
@@ -60,5 +58,4 @@ describe('Destination', () => {
     expect(destination2.alt).to.equal("city during the day time with eiffel tower");
     expect(destination3.alt).to.equal("people standing inside a colosseum during the day");
   })
-
 })
