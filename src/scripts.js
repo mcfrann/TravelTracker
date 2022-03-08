@@ -12,13 +12,12 @@ import fetchAPI from '../src/API-calls.js';
 
 //---------------QUERY SELECTORS-----------------
 
-const placesList = document.getElementById("list-places");
-const bookTripForm = document.querySelector(".book-travel-form");
+const placesList = document.getElementById('list-places');
+const bookTripForm = document.querySelector('.book-travel-form');
 const placeInput = document.getElementById('chosen-place');
 const dateInput = document.querySelector('.trip-date-input');
 const durationInput = document.querySelector('.trip-duration-input');
 const travelersInput = document.querySelector('.trip-travelers-input');
-const submit = document.querySelector('.submit-trip');
 const username = document.getElementById('username');
 const passwordInput = document.getElementById('password');
 const login = document.querySelector('.login');
@@ -37,41 +36,39 @@ let currentTraveler = null;
 let allDestinations = null;
 let userTrips = null;
 let userID = null;
-// let password = null;
 
 //---------------- FUNCTIONS -----------------------
 
-//-----------------Login
+// Login
 
 const toggleHidden = (page) => {
   page.classList.toggle('hidden');
-}
+};
 
 const loginToDashboard = () => {
   toggleHidden(loginPage);
-  toggleHidden(travelerDashboard)
+  toggleHidden(travelerDashboard);
   renderPage();
-}
+};
 
 const checkCred = () => {
-  const userString = username.value.slice(0, 8)
-  userID = parseInt(username.value.slice(8))
+  const userString = username.value.slice(0, 8);
+  userID = parseInt(username.value.slice(8));
   if ((userString === 'traveler') && (userID < 51) && (passwordInput.value === 'traveler')) {
-    loginToDashboard()
+    loginToDashboard();
   } else {
-    alert('Make sure your username and/or password are correct.')
-  }
-}
+    alert('Make sure your username and/or password are correct.');
+  };
+};
 
 const navigateToUserDashboard = (event) => {
   if (username.value && passwordInput.value) {
-    event.preventDefault()
-    checkCred()
-    console.log(userID)
-  }
-}
+    event.preventDefault();
+    checkCred();
+  };
+};
 
-//------------------Main Dashboard
+// Main Dashboard
 
 const renderPage = () => {
   Promise.all([fetchTravelers, fetchTrips, fetchDestinations])
@@ -85,49 +82,47 @@ const renderPage = () => {
       displayUserTrips(userTrips)
       domUpdates.populateDestinationMenu(allDestinations)
       domUpdates.displayTotalSpent(currentTraveler)
-      console.log(currentTraveler)
-    })
-}
+    });
+};
 
 const assignCurrentUser = () => {
-  currentTraveler = allTravelers.find(traveler => traveler.id === userID)
-}
+  currentTraveler = allTravelers.find(traveler => traveler.id === userID);
+};
 
 const findUsersTrips = () => {
-  userTrips = allTrips.filter(trip => trip.userID === currentTraveler.id)
-  currentTraveler.trips = userTrips
+  userTrips = allTrips.filter(trip => trip.userID === currentTraveler.id);
+  currentTraveler.trips = userTrips;
   const tripDestinations = userTrips.forEach(trip => {
     const places = allDestinations.forEach(destination => {
       if (destination.id === trip.destinationID) {
-        trip.destination = destination
-      }
-    })
-    return places
-  })
-}
+        trip.destination = destination;
+      };
+    });
+    return places;
+  });
+};
 
 const displayWelcome = (currentTraveler) => {
   domUpdates.welcomeTraveler(currentTraveler);
-}
+};
 
 const displayUserTrips = (userTrips) => {
   domUpdates.displayTrips(userTrips);
-}
+};
 
 const changeDestinationInput = () => {
   placeInput.value = placesList.options[placesList.selectedIndex].text;
   domUpdates.showEstimatedCost(placeInput, durationInput, travelersInput, allDestinations);
-}
+};
 
 const findIndexOfInput = () => {
-  const dest = placeInput.value
-  const destID = allDestinations.find(place => place.destination === dest)
-  return destID
-}
+  const dest = placeInput.value;
+  const destID = allDestinations.find(place => place.destination === dest);
+  return destID;
+};
 
 //----------------- SCRIPTS ----------------------
 
-// window.onload = (event) => (event, renderPage());
 placesList.onchange = changeDestinationInput;
 login.addEventListener('click', navigateToUserDashboard);
 
@@ -150,5 +145,5 @@ bookTripForm.addEventListener('submit', (e) => {
   userTrips.push(newTrip)
   domUpdates.displayTrips(userTrips)
   domUpdates.clearEstimatedCost()
-  e.target.reset();
+  e.target.reset()
 });

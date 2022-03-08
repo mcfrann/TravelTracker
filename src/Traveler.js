@@ -37,5 +37,5 @@ class Traveler {
 
 
 
-export default Traveler
+export default Traveler;
 
