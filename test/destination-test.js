@@ -2,37 +2,7 @@ import {expect} from 'chai';
 import Traveler from '../src/Traveler';
 import Trip from '../src/Trip';
 import Destination from '../src/Destination';
-
-
-const destinationArg1 = {
-  "id": 1,
-  "destination": "Lima, Peru",
-  "estimatedLodgingCostPerDay": 70,
-  "estimatedFlightCostPerPerson": 400,
-  "image": "https://images.unsplash.com/photo-1489171084589-9b5031ebcf9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80",
-  "alt": "overview of city buildings with a clear sky"
-}
-
-const destinationArg2 = {
-  "id": 2,
-  "destination": "Stockholm, Sweden",
-  "estimatedLodgingCostPerDay": 100,
-  "estimatedFlightCostPerPerson": 780,
-  "image": "https://images.unsplash.com/photo-1560089168-6516081f5bf1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
-  "alt": "city with boats on the water during the day time"
-}
-
-const destinationArg3 = {
-  "id": 3,
-  "destination": "Sydney, Austrailia",
-  "estimatedLodgingCostPerDay": 130,
-  "estimatedFlightCostPerPerson": 950,
-  "image": "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
-  "alt": "opera house and city buildings on the water with boats"
-}
-
-
-
+import dataTest from './data-test';
 
 describe('Destination', () => {
   let destination1;
@@ -40,9 +10,9 @@ describe('Destination', () => {
   let destination3;
 
   beforeEach (() => {
-      destination1 = new Destination(destinationArg1);
-      destination2 = new Destination(destinationArg2);
-      destination3 = new Destination(destinationArg3);
+      destination1 = new Destination(dataTest.destination1);
+      destination2 = new Destination(dataTest.destination2);
+      destination3 = new Destination(dataTest.destination3);
   })
 
   it('should be a function', () => {
@@ -56,39 +26,39 @@ describe('Destination', () => {
   })
 
   it('should have an id', () => {
-    expect(destination1.id).to.equal(1);
-    expect(destination2.id).to.equal(2);
-    expect(destination3.id).to.equal(3);
+    expect(destination1.id).to.equal(28);
+    expect(destination2.id).to.equal(7);
+    expect(destination3.id).to.equal(22);
   })
   
   it('should have a destination', () => {
-    expect(destination1.destination).to.equal("Lima, Peru");
-    expect(destination2.destination).to.equal("Stockholm, Sweden");
-    expect(destination3.destination).to.equal("Sydney, Austrailia");
+    expect(destination1.destination).to.equal("San Juan, Puerto Rico");
+    expect(destination2.destination).to.equal("Paris, France");
+    expect(destination3.destination).to.equal("Rome, Italy");
   })
 
   it('should show estimated lodging cost per day', () => {
     expect(destination1.estimatedLodgingCostPerDay).to.equal(70);
     expect(destination2.estimatedLodgingCostPerDay).to.equal(100);
-    expect(destination3.estimatedLodgingCostPerDay).to.equal(130);
+    expect(destination3.estimatedLodgingCostPerDay).to.equal(90);
   })
 
   it('should show estimated cost per person', () => {
-    expect(destination1.estimatedFlightCostPerPerson).to.equal(400);
-    expect(destination2.estimatedFlightCostPerPerson).to.equal(780);
-    expect(destination3.estimatedFlightCostPerPerson).to.equal(950);
+    expect(destination1.estimatedFlightCostPerPerson).to.equal(900);
+    expect(destination2.estimatedFlightCostPerPerson).to.equal(395);
+    expect(destination3.estimatedFlightCostPerPerson).to.equal(650);
   })
 
   it('should have an image associated with the destination', () => {
-    expect(destination1.image).to.equal("https://images.unsplash.com/photo-1489171084589-9b5031ebcf9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80");
-    expect(destination2.image).to.equal("https://images.unsplash.com/photo-1560089168-6516081f5bf1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
-    expect(destination3.image).to.equal("https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+    expect(destination1.image).to.equal("https://images.unsplash.com/photo-1580237541049-2d715a09486e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2090&q=80");
+    expect(destination2.image).to.equal("https://images.unsplash.com/photo-1524396309943-e03f5249f002?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80");
+    expect(destination3.image).to.equal("https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
   })
 
   it('should have alt text for the image', () => {
-    expect(destination1.alt).to.equal("overview of city buildings with a clear sky");
-    expect(destination2.alt).to.equal("city with boats on the water during the day time");
-    expect(destination3.alt).to.equal("opera house and city buildings on the water with boats");
+    expect(destination1.alt).to.equal("white and brown concrete buildings near sea under white clouds during daytime");
+    expect(destination2.alt).to.equal("city during the day time with eiffel tower");
+    expect(destination3.alt).to.equal("people standing inside a colosseum during the day");
   })
 
 })

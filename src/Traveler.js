@@ -1,12 +1,12 @@
 import moment from 'moment';
 
+
 class Traveler {
   constructor(traveler, today) {
     this.id = traveler.id;
     this.name = traveler.name;
     this.travelerType = traveler.travelerType;
     this.trips = null;
-    this.currentTrip = null;
     this.today = today;
   }
 
@@ -18,7 +18,7 @@ class Traveler {
     const currentYear = this.today.split('/')[0]
     const allTripTotal = this.trips.reduce((acc, trip) => {
       const tripYear = trip.date.split('/')[0]
-      if (tripYear === currentYear) {
+      if (tripYear === currentYear && trip.status === "approved") {
         const totalLodgingPerPerson = ((acc + trip.destination.estimatedLodgingCostPerDay) * trip.duration) / trip.travelers
         const flightPerPerson = acc + trip.destination.estimatedFlightCostPerPerson
         const totalWithoutPercent = totalLodgingPerPerson + flightPerPerson
@@ -32,10 +32,7 @@ class Traveler {
     this.totalThisYear = allTripTotal
     return allTripTotal
   }
-  
 }
-
-
 
 export default Traveler;
 
