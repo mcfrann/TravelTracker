@@ -8,10 +8,6 @@ Travel Tracker is a web application that allows users to sign in to view their p
 
 The spec sheet can be found [here](https://frontend.turing.edu/projects/travel-tracker.html).
 
-## Deployment Link
-
-Coming soon.
-
 ## Goals and Objectives:
 
 - Conduct tests to check the functionality of the classes and methods
@@ -36,11 +32,11 @@ Technologies/languages used include:
 
 ## Setup:
 
-To access this project on your local machine, `git clone` this repo, `cd` into the folder, and run `npm install` to install dependencies.
+To access this project on your local machine, `git clone` this repo, `cd` into the folder, run `npm install` to install dependencies, then run `npm start`. Copy and paste `http://localhost:8080/` into your browser and the site should have full functionality!
+
+Alternatively, you can visit the deployment link [here](https://mcfrann.github.io/TravelTracker/), but make sure you still follow the steps to clone and run the travel-tracker-api below.
 
 Go to the travel-tracker-api repo [here](https://github.com/turingschool-examples/travel-tracker-api). In a separate terminal tab, `git clone` this repo down to your machine in a different folder. `cd` into it then run `npm install`, then `npm start`. You now have access to the local server this project uses for its data.
-
-Now you can go back to the terminal tab for this project and run `npm start`. Copy and paste the provided web address into your browser and the site should have full functionality! Alternatively, see the deployment link above.
 
 To log in, any username of `traveler1` - `traveler50` will take you to different users' dashboards. Password is `traveler`.
 
