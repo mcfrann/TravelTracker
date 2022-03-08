@@ -1,17 +1,12 @@
 import moment from "moment";
 
-
-
-
 //--------------QUERY SELECTORS--------------
 
 const welcomeMessage = document.querySelector('.welcome-message');
-const displayTrips = document.querySelector('.right-panel')
-const displayInGlide = document.querySelector('.glide__slides');
 const totalBanner = document.querySelector('.total-spent-banner');
 const dropDown = document.querySelector('#list-places');
-const estimatedCost = document.querySelector('.estimated-cost')
-const rightPanel = document.querySelector('.right-panel')
+const estimatedCost = document.querySelector('.estimated-cost');
+const rightPanel = document.querySelector('.right-panel');
 
 //---------------UPDATES---------------------
 
@@ -79,7 +74,7 @@ const domUpdates = {
       if (place.destination === destName) {
         const totalWithoutPercent = (place.estimatedLodgingCostPerDay * durationInput.value) + (place.estimatedFlightCostPerPerson * travelersInput.value)
         const tenPercent = totalWithoutPercent * .1
-        total = (totalWithoutPercent + tenPercent).toFixed(2)
+        total = parseFloat(totalWithoutPercent + tenPercent).toFixed(2)
       }
     })
     estimatedCost.innerHTML = `
@@ -90,27 +85,6 @@ const domUpdates = {
   clearEstimatedCost() {
     estimatedCost.innerHTML = `<p class="trip-message" id="succes-message"><i>Success! Your trip has been submitted for review!</i></p>`
   }
-}
+};
 
-export default domUpdates
-
-
-/*
-
-HERE:
-<section class="trip" id="${counter.toString()}">
-            <h2 class="trip-title">${trip.destination.destination}</h2>
-            <img class="tile-image" src="${trip.destination.image}" alt="${trip.destination.alt}"/>
-            <p class="trip-description">Status was ${trip.status}!<br>
-            ${trip.travelers.toString()} travelers, ${trip.duration} days.<br>
-            When: ${trip.date} - (PASSED)</p>
-          </section> */
-
-          //THERE
-          // <section class="trip" id="${counter.toString()}">
-          //   <h2 class="trip-title">${trip.destination.destination}</h2>
-          //   <img class="tile-image" src="${trip.destination.image}" alt="${trip.destination.alt}"/>
-          //   <p class="trip-description">Status is ${trip.status}!<br>
-          //   ${trip.travelers.toString()} travelers, ${trip.duration} days.<br>
-          //   When: ${trip.date} - (UPCOMING)</p>
-          // </section>
+export default domUpdates;

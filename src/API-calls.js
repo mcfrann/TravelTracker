@@ -6,10 +6,6 @@ const fetchAPI = {
         .then(response => response.json())
   },
 
-  // getSingleTraveler() {
-  //   return fetch('http://localhost:3001/api/v1/travelers/'/*user id*/)
-  //       .then(response => response.json())
-  // },
   getAllTrips() {
     return fetch('http://localhost:3001/api/v1/trips')
         .then(response => response.json())

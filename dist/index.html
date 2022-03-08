@@ -17,9 +17,9 @@
       <form>
         <h2 class="login-message">Let's Go</h2>
         <label for="username">Username:</label><br>
-        <input type="text" id="username"><br><br>
+        <input type="text" id="username" required><br><br>
         <label for="password">Password:</label><br>
-        <input type="text" id="password"><br><br>
+        <input type="text" id="password" required><br><br>
         <button class="login">Log In</button>
       </form>
     </div>
@@ -77,8 +77,6 @@
       </section>
     </section>
   </section>
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
-  <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
 </body>
 </html>

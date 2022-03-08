@@ -12,10 +12,6 @@ body {
   font-family: 'Oswald', sans-serif;
 }
 
-/* * {
-  border: 2px solid red;
-} */
-
 /*------------------- LOGIN PAGE ------------------*/
 
 .login-page {
@@ -62,7 +58,6 @@ body {
 header {
   display: flex;
   flex-direction: row;
-  align-items: center;
   background-color: #f8edeb;
   margin-top: 3%;
   height: 40vh;
@@ -264,7 +259,6 @@ div {
 }
 
 /*------------- RESPONSIVE SETTINGS -------------*/
-
 
 @media screen and (min-width: 951px) {
   h1 {
