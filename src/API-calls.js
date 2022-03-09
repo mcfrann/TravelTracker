@@ -1,4 +1,5 @@
 import { parseTwoDigitYear } from "moment"
+import domUpdates from "./DOM-updates"
 
 const fetchAPI = {
   getAllTravelers() {
@@ -17,7 +18,7 @@ const fetchAPI = {
   },
 
   postNewTrip(newTrip) {
-    fetch('http://localhost:3001/api/v1/trips', {
+    return fetch('http://localhost:3001/api/v1/trips', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newTrip)
@@ -26,7 +27,6 @@ const fetchAPI = {
       if(!response.ok) {
         throw new Error('Enter the correct format in the fields.')
       } else {
-        throw 'Your trip has been submitted for review!'
         return response.json()
       }
     })
