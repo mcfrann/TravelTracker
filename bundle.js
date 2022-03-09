@@ -21553,6 +21553,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _DOM_updates__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(145);
+
 
 
 const fetchAPI = {
@@ -21572,7 +21574,7 @@ const fetchAPI = {
   },
 
   postNewTrip(newTrip) {
-    fetch('http://localhost:3001/api/v1/trips', {
+    return fetch('http://localhost:3001/api/v1/trips', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newTrip)
@@ -21581,7 +21583,6 @@ const fetchAPI = {
       if(!response.ok) {
         throw new Error('Enter the correct format in the fields.')
       } else {
-        throw 'Your trip has been submitted for review!'
         return response.json()
       }
     })
@@ -21711,13 +21712,14 @@ const passwordInput = document.getElementById('password');
 const login = document.querySelector('.login');
 const loginPage = document.querySelector('.login-page');
 const travelerDashboard = document.querySelector('.traveler-dashboard');
+const submitButton = document.querySelector('.submit-button')
 
 //--------------- GLOBAL VARIABLES ---------------
 
-const fetchTravelers = _src_API_calls_js__WEBPACK_IMPORTED_MODULE_8__.default.getAllTravelers();
-const fetchTrips = _src_API_calls_js__WEBPACK_IMPORTED_MODULE_8__.default.getAllTrips();
-const fetchDestinations = _src_API_calls_js__WEBPACK_IMPORTED_MODULE_8__.default.getAllDestinations();
-const today = moment__WEBPACK_IMPORTED_MODULE_1___default()().format('YYYY/MM/DD');
+let fetchTravelers = _src_API_calls_js__WEBPACK_IMPORTED_MODULE_8__.default.getAllTravelers();
+let fetchTrips = _src_API_calls_js__WEBPACK_IMPORTED_MODULE_8__.default.getAllTrips();
+let fetchDestinations = _src_API_calls_js__WEBPACK_IMPORTED_MODULE_8__.default.getAllDestinations();
+let today = moment__WEBPACK_IMPORTED_MODULE_1___default()().format('YYYY/MM/DD');
 let allTravelers = null;
 let allTrips = null;
 let currentTraveler = null;
@@ -21734,9 +21736,9 @@ const toggleHidden = (page) => {
 };
 
 const loginToDashboard = () => {
+  renderPage();
   toggleHidden(loginPage);
   toggleHidden(travelerDashboard);
-  renderPage();
 };
 
 const checkCred = () => {
@@ -21813,6 +21815,7 @@ const findIndexOfInput = () => {
 
 placesList.onchange = changeDestinationInput;
 login.addEventListener('click', navigateToUserDashboard);
+// submitButton.addEventListener('click', submitTrip)
 
 //------------------ POST ------------------------
 
@@ -21829,12 +21832,18 @@ bookTripForm.addEventListener('submit', (e) => {
     suggestedActivities: []
   };
   _src_API_calls_js__WEBPACK_IMPORTED_MODULE_8__.default.postNewTrip(newTrip)
-  newTrip["destination"] = findIndexOfInput()
-  userTrips.push(newTrip)
-  _DOM_updates__WEBPACK_IMPORTED_MODULE_4__.default.displayTrips(userTrips)
-  _DOM_updates__WEBPACK_IMPORTED_MODULE_4__.default.clearEstimatedCost()
-  e.target.reset()
+  .then(() => {
+    e.target.reset()
+    fetchTravelers = _src_API_calls_js__WEBPACK_IMPORTED_MODULE_8__.default.getAllTravelers();
+    fetchTrips = _src_API_calls_js__WEBPACK_IMPORTED_MODULE_8__.default.getAllTrips();
+    fetchDestinations = _src_API_calls_js__WEBPACK_IMPORTED_MODULE_8__.default.getAllDestinations();
+    _DOM_updates__WEBPACK_IMPORTED_MODULE_4__.default.clearEstimatedCost()
+  })
+  .then(() => {
+    renderPage()
+  })
 });
+
 
 })();
 
