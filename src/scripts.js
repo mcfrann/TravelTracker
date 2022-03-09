@@ -23,13 +23,14 @@ const passwordInput = document.getElementById('password');
 const login = document.querySelector('.login');
 const loginPage = document.querySelector('.login-page');
 const travelerDashboard = document.querySelector('.traveler-dashboard');
+const submitButton = document.querySelector('.submit-button')
 
 //--------------- GLOBAL VARIABLES ---------------
 
-const fetchTravelers = fetchAPI.getAllTravelers();
-const fetchTrips = fetchAPI.getAllTrips();
-const fetchDestinations = fetchAPI.getAllDestinations();
-const today = moment().format('YYYY/MM/DD');
+let fetchTravelers = fetchAPI.getAllTravelers();
+let fetchTrips = fetchAPI.getAllTrips();
+let fetchDestinations = fetchAPI.getAllDestinations();
+let today = moment().format('YYYY/MM/DD');
 let allTravelers = null;
 let allTrips = null;
 let currentTraveler = null;
@@ -46,9 +47,9 @@ const toggleHidden = (page) => {
 };
 
 const loginToDashboard = () => {
+  renderPage();
   toggleHidden(loginPage);
   toggleHidden(travelerDashboard);
-  renderPage();
 };
 
 const checkCred = () => {
@@ -125,6 +126,7 @@ const findIndexOfInput = () => {
 
 placesList.onchange = changeDestinationInput;
 login.addEventListener('click', navigateToUserDashboard);
+// submitButton.addEventListener('click', submitTrip)
 
 //------------------ POST ------------------------
 
@@ -141,9 +143,15 @@ bookTripForm.addEventListener('submit', (e) => {
     suggestedActivities: []
   };
   fetchAPI.postNewTrip(newTrip)
-  newTrip["destination"] = findIndexOfInput()
-  userTrips.push(newTrip)
-  domUpdates.displayTrips(userTrips)
-  domUpdates.clearEstimatedCost()
-  e.target.reset()
+  .then(() => {
+    e.target.reset()
+    fetchTravelers = fetchAPI.getAllTravelers();
+    fetchTrips = fetchAPI.getAllTrips();
+    fetchDestinations = fetchAPI.getAllDestinations();
+    domUpdates.clearEstimatedCost()
+  })
+  .then(() => {
+    renderPage()
+  })
 });
+
